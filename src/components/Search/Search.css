@@ -1,0 +1,36 @@
+/* Search */
+.search-form-container {
+    position: fixed;
+    width: 100%;
+    max-width: 100%;
+    height: 100vh;
+    background-color: var(--primary-background-color);
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    display: flex;
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity .5s;
+}
+
+.form-note {
+    font-size: var(--font-size-xsm);
+    align-self: flex-end;
+}
+
+.form-close-btn {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    border: 2px solid var(--secondary-background-color);
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+}
+
+/* Form JavaScript styles */
+.search-form-container.activated {
+    opacity: 1;
+    transform: scale(1);
+}
