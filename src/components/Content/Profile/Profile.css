@@ -1,34 +1,59 @@
-.profile-container {
-    position: absolute;
-    top: 1.5vh;
-    right: 2vh;
+.profile-icon-box {
+    position: block;
 }
 
-.profile {
+.profile-container {
     position: relative;
-    display: inline-block;
+    background-color: var(--secondary-background-color);
     overflow: hidden;
-    height: 4rem;
-    width: 4rem;
+    height: var(--icon-height);
+    width: var(--icon-width);
     border-radius: 50%;
+}
+
+.profile-container.login {
+    text-align: center;
+    padding-top: .8rem;
+    padding-right: 2.3rem;
+}
+
+.profile-container.opened {
+    box-shadow: 
+        0 1px 10px rgba(100, 100, 100, 0.3), 
+        0 1px 10px 4px rgba(100, 100, 100, 0.15);
+}
+
+.profile-container:hover {
+    cursor: pointer;
+    box-shadow: 
+        0 1px 2px rgba(100, 100, 100, 0.3), 
+        0 1px 6px 3px rgba(100, 100, 100, 0.15);
 }
 
 .profile-image {
     position: absolute;
-    object-fit: cover;
     width: 100%;
     height: 100%;
 }
 
-.profile.opened:hover {
-    box-shadow:
-        0 2px 2px rgba(255, 0, 0, 0.3),
-        0 2px 2px 2px rgba(255, 0, 0, 0.15);
+.login-icon {
+    position: absolute;
 }
 
-.profile:hover {
-    cursor: pointer;
-    box-shadow:
-        0 2px 2px rgba(124, 123, 123, 0.3),
-        0 2px 2px 2px rgba(124, 123, 123, 0.15);
+.profile-menu-container {
+    position: absolute;
+    display: none;
+    background-color: var(--transparent-dark-color);
+    height: 20rem;
+    width: 50rem;
+    top: 0;
+    right: 0;
+    margin-top: 5.5rem;
+    box-shadow: 
+        0 1px 2px rgba(100, 100, 100, 0.3), 
+        0 1px 6px 3px rgba(100, 100, 100, 0.15);
+}
+
+.profile-menu-container.opened {
+    display: block;
 }

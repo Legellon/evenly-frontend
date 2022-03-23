@@ -1,0 +1,7 @@
+.navbar-box {
+    position: absolute;
+    display: flex;
+    gap: 1rem;
+    top: 1.25rem;
+    right: 2vw;
+}

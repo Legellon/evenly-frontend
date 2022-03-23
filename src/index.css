@@ -23,6 +23,14 @@ body {
   transition: background-color .25s, color .25s;
 }
 
+@media screen and (max-width: 900px) {
+  html, body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+  }
+}
+
 a {
   text-decoration: none;
   color: inherit;

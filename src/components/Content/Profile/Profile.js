@@ -1,28 +1,46 @@
-import { useState } from 'react';
-import './Profile.css'
+import { useContext, useState } from 'react';
+import './profile.css'
 
-const image = require('../../../assets/images/avatar.png');
-
-export default function() {
+export default function ({ user, auth }) {
     const [openProfileMenu, setOpenProfileMenu] = useState(false);
 
-    const toggleProfileMenu = () => {
-        setOpenProfileMenu(!openProfileMenu);
+    const profileContainerClasses = [
+        openProfileMenu ? 'opened' : '', 
+        auth ? '' : 'login',
+    ].join(' ');
+
+    const toggleProfile = () => {
+        if (auth) {
+            setOpenProfileMenu(!openProfileMenu);
+        }
     };
 
     return (
-        <div className="profile-container">
-            <div 
-                className={
-                    `profile ${ openProfileMenu ? 'opened' : '' }`
-                }
-                onClick={toggleProfileMenu}
-            >
-                <img 
-                    className='profile-image' 
-                    src={image} 
-                />
+        <>
+            <div className='profile-icon-box'>
+                <div
+                    className={`profile-container ${profileContainerClasses}`}
+                    onClick={toggleProfile}
+                >
+                    {
+                        auth ? (
+                            <img
+                                className='profile-image'
+                                src={user.image}
+                            />
+                        ) : (
+                            <i className='ri-login-box-line login-icon' />
+                        )
+                    }
+                </div>
             </div>
-        </div>
+            <div
+                className={
+                    `profile-menu-container${openProfileMenu ? ' opened' : ''}`
+                }
+            >
+
+            </div>
+        </>
     );
 }

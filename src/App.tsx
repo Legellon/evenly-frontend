@@ -1,31 +1,19 @@
 import { createContext, useEffect, useState } from 'react';
-import Header from './components/Header/Header';
-import Search from './components/Search/Search';
-import Content from './components/Content/Content';
+import Content from './components/content/content';
 
 type AppContext = {
   theme: ColorThemes
-  showSearch: boolean
   toggleTheme(): void
-  openSearch(): void
-  closeSearch(): void
 }
+
+export enum ColorThemes { LIGHT = 'light-theme', DARK = 'dark-theme' };
+
+export const AppContext = createContext<AppContext | null>(null);
 
 export default function () {
   const [theme, setTheme] = useState(ColorThemes.DARK);
-  const [showSearch, setShowSearch] = useState(false);
-  const [scrolledPage, setScrolledPage] = useState(false);
-
-  const handleScroll = () => {
-    if (window.scrollY > 0) {
-      setScrolledPage(true);
-    } else {
-      setScrolledPage(false);
-    }
-  };
 
   const contextValue: AppContext = {
-    showSearch,
     theme,
 
     toggleTheme: () => {
@@ -34,14 +22,6 @@ export default function () {
       } else {
         setTheme(ColorThemes.DARK);
       }
-    },
-
-    openSearch: () => {
-      setShowSearch(true);
-    },
-
-    closeSearch: () => {
-      setShowSearch(false);
     },
   }
 
@@ -55,11 +35,7 @@ export default function () {
 
   return (
     <AppContext.Provider value={contextValue}>
-        <Content />
+      <Content />
     </AppContext.Provider>
   );
 }
-
-export enum ColorThemes { LIGHT = 'light-theme', DARK = 'dark-theme' };
-
-export const AppContext = createContext<AppContext | null>(null);

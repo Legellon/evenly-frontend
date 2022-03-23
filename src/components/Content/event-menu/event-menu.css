@@ -1,0 +1,144 @@
+:root {
+    --panel-btns-color: #222429;
+}
+
+body.light-theme {
+    --panel-btns-color: #e7e7e7;
+}
+
+.events-panel-box {
+    position: absolute;
+    background-color: var(--primary-background-color);
+    box-shadow:
+        0 1px 2px rgba(100, 100, 100, 0.3),
+        0 1px 6px 3px rgba(100, 100, 100, 0.15);
+    transition-property: transform, opacity;
+    transition-duration: .25s;
+    transition-timing-function: cubic-bezier(0, 0, .2, 1);
+    z-index: 99;
+}
+
+.events-panel-container {
+    position: absolute;
+    display: flex;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.events-search-spacer {
+    flex: none;
+    height: 70px;
+}
+
+.events-container {
+    scrollbar-width: thin;
+    display: flex;
+    gap: .5rem;
+    z-index: 1;
+}
+
+.toggle-events-panel {
+    position: absolute;
+    opacity: .5;
+    background-color: var(--panel-btns-color);
+    box-shadow:
+        0 1px 2px rgba(100, 100, 100, 0.3),
+        0 1px 6px 3px rgba(100, 100, 100, 0.15);
+    z-index: 1;
+}
+
+.toggle-events-panel:hover {
+    opacity: 1;
+}
+
+.right-icon,
+.left-icon,
+.up-icon,
+.down-icon {
+    display: none;
+}
+
+@media (min-width: 1081px) {
+    .events-panel-box {
+        top: 0;
+        height: 100%;
+        width: 400px;
+        transform: translateX(0);
+    }
+
+    .events-panel-box.collapsed {
+        box-shadow: none;
+        transform: translateX(-400px);
+    }
+
+    .events-panel-container {
+        flex-direction: column;
+    }
+
+    .events-container {
+        overflow-y: auto;
+        flex-direction: column;
+        padding: 0 .5rem .5rem .5rem;
+    }
+
+    .toggle-events-panel {
+        top: calc(50% - 2.5rem);
+        border-radius: 0 6px 6px 0;
+        height: 5rem;
+        left: 400px;
+    }
+
+    .toggle-events-panel>i {
+        position: relative;
+        top: 1.1rem;
+    }
+
+    .right-icon,
+    .left-icon {
+        display: block;
+    }
+}
+
+@media (max-width: 1080px) {
+    .events-panel-box {
+        bottom: 0;
+        height: 20rem;
+        width: 100%;
+        transform: translateY(0);
+    }
+
+    .events-panel-box.collapsed {
+        transform: translateY(20rem);
+    }
+
+    .events-panel-container {
+        flex-direction: row;
+    }
+
+    .events-search-spacer {
+        display: none;
+    }
+
+    .events-container {
+        overflow-x: auto;
+        padding: .5rem .5rem 0 .5rem;
+    }
+
+    .toggle-events-panel {
+        left: calc(50% - 2.5rem);
+        border-radius: 6px 6px 0 0;
+        width: 5rem;
+        bottom: 20rem;
+    }
+
+    .toggle-events-panel>i {
+        position: relative;
+        left: 1.1rem;
+    }
+
+    .up-icon,
+    .down-icon {
+        display: block;
+    }
+}
