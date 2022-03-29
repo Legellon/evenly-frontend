@@ -1,7 +1,7 @@
 import React, { useEffect, useState, createContext } from "react";
 import axios from "axios";
 import EventMenu from "./event-menu";
-import Profile from "./profile";
+import Profile from "./profilet";
 import Map from "./map";
 import SearchBar from "./search-bar";
 import ToggleTheme from "./toggle-theme";
