@@ -1,10 +1,8 @@
-import { useContext } from "react";
-import { AppContext } from "../../../App";
+import { useGlobal } from "../../../context/global";
+import './toggle-theme.css'
 
-import './toggle-theme.css';
-
-export default function () {
-    const { theme, toggleTheme} = useContext(AppContext);
+export default function() {
+    const { theme, toggleTheme } = useGlobal();
     return (
         <div className='theme-icon-box'>
             <div

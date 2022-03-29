@@ -1,41 +1,29 @@
 import { createContext, useEffect, useState } from 'react';
-import Content from './components/content/content';
+import Content from './components/content';
+import GlobalProvider, { GlobalContext } from './context/global';
+import { ColorThemes } from './context/global';
 
-type AppContext = {
-  theme: ColorThemes
-  toggleTheme(): void
-}
-
-export enum ColorThemes { LIGHT = 'light-theme', DARK = 'dark-theme' };
-
-export const AppContext = createContext<AppContext | null>(null);
+const bodyClassList = document.body.classList;
 
 export default function () {
-  const [theme, setTheme] = useState(ColorThemes.DARK);
+  const [theme, setTheme] = useState<ColorThemes>(ColorThemes.DARK);
 
-  const contextValue: AppContext = {
+  const contextValue: GlobalContext = {
     theme,
-
     toggleTheme: () => {
-      if (theme === ColorThemes.DARK) {
-        setTheme(ColorThemes.LIGHT);
-      } else {
-        setTheme(ColorThemes.DARK);
-      }
-    },
-  }
+      theme === ColorThemes.DARK ?
+        setTheme(ColorThemes.LIGHT) : setTheme(ColorThemes.DARK);
+    }
+  };
 
   useEffect(() => {
-    if (theme === ColorThemes.LIGHT) {
-      document.body.classList.add('light-theme');
-    } else {
-      document.body.classList.remove('light-theme');
-    }
+    theme === ColorThemes.LIGHT ? 
+      bodyClassList.add('light-theme') : bodyClassList.remove('light-theme');
   }, [theme]);
 
   return (
-    <AppContext.Provider value={contextValue}>
+    <GlobalProvider value={contextValue}>
       <Content />
-    </AppContext.Provider>
+    </GlobalProvider>
   );
 }

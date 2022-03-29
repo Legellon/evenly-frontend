@@ -1,3 +1,11 @@
+:root {
+    --profile-background-color: rgba(0, 0, 0, .9);
+}
+
+body.light-theme {
+    --profile-background-color: rgba(255, 255, 255, .9);
+}
+
 .profile-icon-box {
     position: block;
 }
@@ -43,7 +51,7 @@
 .profile-menu-container {
     position: absolute;
     display: none;
-    background-color: var(--transparent-dark-color);
+    background-color: var(--profile-background-color);
     height: 20rem;
     width: 50rem;
     top: 0;

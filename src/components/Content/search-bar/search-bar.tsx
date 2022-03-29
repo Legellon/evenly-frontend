@@ -1,6 +1,10 @@
 import './search-bar.css';
 
-export default function ({ placeholder }) {
+interface SearchBarProps {
+    placeholder: string
+}
+
+export default function ({ placeholder }: SearchBarProps ) {
     return (
         <div className='search-box'>
             <div className='search-container'>

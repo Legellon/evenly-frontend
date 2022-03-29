@@ -3,7 +3,7 @@
     top: 0;
     left: 0;
     padding: 1rem .5rem 0 .5rem;
-    width: 400px;
+    width: 38rem;
     height: 70px;
     z-index: 100;
 }
@@ -41,7 +41,7 @@
 
 .search-settings-btn {
     text-align: center;
-    background-color: var(--panel-btns-color);
+    background-color: var(--panel-btn-color);
     width: 5rem;
     border-radius: 5px;
 }

@@ -1,0 +1,49 @@
+.toggle-panel-btn {
+    opacity: .5;
+    background-color: var(--panel-btn-color);
+}
+
+.toggle-panel-btn:hover {
+    opacity: 1;
+}
+
+.right-icon,
+.left-icon,
+.up-icon,
+.down-icon {
+    display: none;
+}
+
+@media (min-width: 1081px) {
+    .toggle-panel-btn {
+        border-radius: 0 6px 6px 0;
+        height: 5rem;
+    }
+
+    .right-icon,
+    .left-icon {
+        display: block;
+    }
+
+    .toggle-panel-btn>i {
+        position: relative;
+        top: 1.1rem;
+    }
+}
+
+@media (max-width: 1080px) {
+    .toggle-panel-btn {
+        border-radius: 6px 6px 0 0;
+        width: 5rem;
+    }
+
+    .up-icon,
+    .down-icon {
+        display: block;
+    }
+
+    .toggle-panel-btn>i {
+        position: relative;
+        left: 1.1rem;
+    }
+}
