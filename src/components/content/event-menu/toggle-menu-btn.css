@@ -44,6 +44,10 @@
 
     .toggle-panel-btn>i {
         position: relative;
-        left: 1.1rem;
+        text-align: center;
+        justify-content: center;
+        -ms-align-items: center;
+        align-items: center;
+
     }
 }

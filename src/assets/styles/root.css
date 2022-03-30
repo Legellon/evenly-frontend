@@ -5,6 +5,9 @@
     --primary-background-color: #131417;
     --secondary-background-color: #252830;
 
+    --scrollbar-thumb-color: rgb(51, 51, 51);
+    --scrollbar-thumb-hover-color: #555;
+
     --hover-light-color: var(--light-color);
     --hover-dark-color: var(--primary-background-color);
 
@@ -44,4 +47,7 @@ body.light-theme {
 
     --transparent-light-color: rgba(0, 0, 0, .05);
     --transparent-dark-color: rgba(241, 241, 241, .6);
+
+    --scrollbar-thumb-color: #c4caca;
+    --scrollbar-thumb-hover-color: #ccd4d4;
 }

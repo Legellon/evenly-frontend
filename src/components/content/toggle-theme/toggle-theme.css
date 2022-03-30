@@ -9,18 +9,17 @@
     width: var(--icon-width);
     border-radius: 50%;
     text-align: center;
-}
-
-.theme-container {
-    padding-top: .8rem;
-    padding-left: .1rem;
+    display: flex;
+    justify-content: center;
+    -ms-align-items: center;
+    align-items: center;
 }
 
 .sun-icon {
     display: block;
 }
 
-.theme-container.light-theme > .sun-icon {
+.theme-container.light-theme>.sun-icon {
     display: none;
 }
 
@@ -28,13 +27,13 @@
     display: none;
 }
 
-.theme-container.light-theme > .moon-icon {
+.theme-container.light-theme>.moon-icon {
     display: block;
 }
 
 .theme-container:hover {
     cursor: pointer;
-    box-shadow: 
-        0 1px 2px rgba(100, 100, 100, 0.3), 
+    box-shadow:
+        0 1px 2px rgba(100, 100, 100, 0.3),
         0 1px 6px 3px rgba(100, 100, 100, 0.15);
 }

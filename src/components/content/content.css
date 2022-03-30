@@ -22,3 +22,8 @@
     right: 40rem;
 }
 
+@media (max-width: 1080px) {
+    .map-box.opened-panel {
+        left: 0rem;
+    }
+}

@@ -17,13 +17,13 @@ body.light-theme {
     height: var(--icon-height);
     width: var(--icon-width);
     border-radius: 50%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    -ms-align-items: center;
+    align-items: center;
 }
 
-.profile-container.login {
-    text-align: center;
-    padding-top: .8rem;
-    padding-right: 2.3rem;
-}
 
 .profile-container.opened {
     box-shadow: 

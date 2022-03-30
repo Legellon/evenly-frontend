@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from 'react';
-import Content from './components/contentt';
+import Content from './components/content';
 import GlobalProvider, { GlobalContext } from './context/global';
 import { ColorThemes } from './context/global';
 
