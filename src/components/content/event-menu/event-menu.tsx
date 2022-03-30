@@ -1,4 +1,3 @@
-import { useState, useEffect, useContext } from 'react';
 import EventsPlacer from './events-placer';
 import ToggleMenuBtn from './toggle-menu-btn';
 import { Event } from '../../../context/events-panel';

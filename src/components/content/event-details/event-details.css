@@ -1,4 +1,4 @@
-.event-details {
+.event-details-box {
     position: absolute;
     background-color: var(--primary-background-color);
     top: 0;
@@ -7,8 +7,65 @@
     height: 100%;
 }
 
+.event-details-icons-box {
+    position: absolute;
+    display: flex;
+    gap: 1em;
+    top: 1.25rem;
+    right: 1.25rem;
+}
+
+.close-icon-box {
+    display: block;
+}
+
+.close-icon-container {
+    overflow: hidden;
+    background-color: var(--transparent-dark-color);
+    height: var(--icon-height);
+    width: var(--icon-width);
+    border-radius: 50%;
+    text-align: center;
+}
+
+.close-icon-container {
+    padding-top: .8rem;
+    padding-left: .1rem;
+}
+
+.event-details-container {
+    height: 100%;
+    width: 100%;
+    scrollbar-width: thin;
+    overflow-y: auto;
+    padding-bottom: 1em;
+}
+
+.event-details-title {
+    padding: 10px;
+    font-weight: 700;
+    font-size: var(--font-size-md);
+}
+
 .event-details-image {
     width: 100%;
     height: 24rem;
     object-fit: cover;
+}
+
+.event-details-spliter {
+    padding-top: 2px;
+    background-color: var(--secondary-background-color);
+}
+
+.event-details-description {
+    padding: 10px;
+}
+
+.event-details-date {
+    padding: 10px;
+}
+
+.event-details-social {
+    padding: 10px
 }

@@ -1,8 +1,8 @@
-import React, { useEffect, useState, createContext } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import EventMenu from "./event-menu";
-import Profile from "./profilet";
-import Map from "./map";
+import Profile from "./profile";
+import EventsMap from "./events-map";
 import SearchBar from "./search-bar";
 import ToggleTheme from "./toggle-theme";
 import EventDetails from "./event-details";
@@ -36,10 +36,15 @@ export default function () {
         selectedEvent ? 'opened-details' : ''
     ].join(' ');
 
-    return (
-        <>
+    const navbarBoxStyles = [
+        'navbar-box',
+        selectedEvent ? 'displaced-right' : ''
+    ].join(' ');
 
-            <div className="navbar-box">
+    return (
+        <div className="content-box">
+
+            <div className={navbarBoxStyles}>
                 <ToggleTheme />
                 <Profile
                     user={null}
@@ -47,7 +52,7 @@ export default function () {
             </div>
 
             <div className={mapBoxStyles}>
-                <Map 
+                <EventsMap 
                     events={events}
                 />
             </div>
@@ -62,12 +67,11 @@ export default function () {
                     collapsed={collapsedEventsPanel}
                     togglePanel={toggleEventsPanel}
                 />
+
+                <EventDetails
+                    event={selectedEvent}
+                />
             </EventsPanelProvider>
-
-            <EventDetails
-                event={selectedEvent}
-            />
-
-        </>
+        </div>
     );
 }

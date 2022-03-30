@@ -13,18 +13,23 @@
     z-index: 1;
 }
 
+.navbar-box.displaced-right {
+    right: calc(1.5rem + 40rem);
+}
+
 .map-box {
     position: absolute;
-    border: none;
     height: 100vh;
-    width: 100%;
+    left: 0;
+    right: 0;
+    z-index: 0;
 }
 
-.map-box.opened-panel {
+/* .map-box.opened-panel {
     left: 38rem;
-}
+} */
 
-.map-box.opened-details {
+/* .map-box.opened-details {
     right: 40rem;
-}
+} */
 
