@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import mapboxgl from "mapbox-gl";
 import { useGlobal, ColorThemes } from "../../../context/global";
 import { Event } from "../../../context/events-panel";
-import { Feature } from "geojson";
-import './map.css';
+import { Feature, FeatureCollection } from "geojson";
+import './events-map.css';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoicHV6aWJveSIsImEiOiJjbDBqYjFtZnIwYXVhM2VwNmUxYTQ1aGRuIn0.Xg9JAhEe0H5ci0aKPfB9sQ';
 
@@ -26,17 +26,18 @@ function serializeEventsToFeatures(events: Event[]) {
 }
 
 export default function ({ events }: MapProps) {
-    const geoEvents: Feature[] = serializeEventsToFeatures(events);
-
     const { theme } = useGlobal();
 
-    const [map, setMap] = useState<mapboxgl.Map>();
-    const mapNode = useRef(document.createElement("div"));
+    const geoEvents: FeatureCollection = {
+        type: "FeatureCollection",
+        features: serializeEventsToFeatures(events)
+    }
 
     const [lng, setLng] = useState(24.753574);
     const [lat, setLat] = useState(59.436962);
 
-    const [zoom, setZoom] = useState(12);
+    const [map, setMap] = useState<mapboxgl.Map>();
+    const mapNode = useRef(document.createElement("div"));
 
     useEffect(() => {
         if (!events) return;
@@ -48,22 +49,8 @@ export default function ({ events }: MapProps) {
             container: node,
             style: style,
             center: [lng, lat],
-            zoom: zoom
+            zoom: 12
         });
-
-        console.log(events);
-        const s = events.map(event => ({
-            type: 'Feature',
-            geometry: {
-                type: 'Point',
-                coordinates: [
-                    event.coordinates.lng, event.coordinates.lat
-                ]
-            },
-            properties: { ...event.content, id: event.id }
-        }));
-
-        console.log(s)
 
         setMap(mapboxMap);
 
@@ -71,6 +58,10 @@ export default function ({ events }: MapProps) {
             mapboxMap.remove();
         };
     }, [theme]);
+    
+    geoEvents.features.map(feature => {
+        // new mapboxgl.Marker().setLngLat()
+    });
 
     return <div ref={mapNode} className='map-container' />;
 }
