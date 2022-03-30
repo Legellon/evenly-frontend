@@ -7,7 +7,7 @@ export default {
             },
             content: {
                 creator_id: 0,
-                description: 'dsffdsdf',
+                description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida ac lorem sed ultrices. Suspendisse potenti. Suspendisse pulvinar porta tortor nec malesuada. Vestibulum nec pretium nunc. Donec iaculis ex nisl, non laoreet nibh congue hendrerit. Nunc sodales elementum ligula, tempus efficitur ex varius nec. Etiam vitae cursus sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer sagittis tristique lacus, imperdiet pellentesque odio laoreet sit amet. Pellentesque condimentum libero consectetur, congue dui a, malesuada sapien. Mauris placerat mollis turpis, nec ultrices quam hendrerit vel. Nunc sit amet neque massa. Proin placerat nulla nec laoreet sagittis. Pellentesque sodales mauris ut erat lobortis, et gravida justo condimentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida ac lorem sed ultrices. Suspendisse potenti. Suspendisse pulvinar porta tortor nec malesuada. Vestibulum nec pretium nunc. Donec iaculis ex nisl, non laoreet nibh congue hendrerit. Nunc sodales elementum ligula, tempus efficitur ex varius nec. Etiam vitae cursus sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer sagittis tristique lacus, imperdiet pellentesque odio laoreet sit amet. Pellentesque condimentum libero consectetur, congue dui a, malesuada sapien. Mauris placerat mollis turpis, nec ultrices quam hendrerit vel. Nunc sit amet neque massa. Proin placerat nulla nec laoreet sagittis. Pellentesque sodales mauris ut erat lobortis, et gravida justo condimentum.',
                 title: 'Hackathon',
                 date: 'Mar 5th 2022',
                 time: '21:00',
@@ -21,7 +21,7 @@ export default {
             },
             content: {
                 creator_id: 0,
-                description: 'dsffdsdf',
+                description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida ac lorem sed ultrices. Suspendisse potenti. Suspendisse pulvinar porta tortor nec malesuada. Vestibulum nec pretium nunc. Donec iaculis ex nisl, non laoreet nibh congue hendrerit. Nunc sodales elementum ligula, tempus efficitur ex varius nec. Etiam vitae cursus sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer sagittis tristique lacus, imperdiet pellentesque odio laoreet sit amet. Pellentesque condimentum libero consectetur, congue dui a, malesuada sapien. Mauris placerat mollis turpis, nec ultrices quam hendrerit vel. Nunc sit amet neque massa. Proin placerat nulla nec laoreet sagittis. Pellentesque sodales mauris ut erat lobortis, et gravida justo condimentum. ',
                 title: 'Anemon12',
                 date: 'Mar 5th 2022',
                 time: '21:00',
@@ -35,7 +35,7 @@ export default {
             },
             content: {
                 creator_id: 0,
-                description: 'dsffdsdf',
+                description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida ac lorem sed ultrices. Suspendisse potenti. Suspendisse pulvinar porta tortor nec malesuada. Vestibulum nec pretium nunc. Donec iaculis ex nisl, non laoreet nibh congue hendrerit. Nunc sodales elementum ligula, tempus efficitur ex varius nec. Etiam vitae cursus sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer sagittis tristique lacus, imperdiet pellentesque odio laoreet sit amet. Pellentesque condimentum libero consectetur, congue dui a, malesuada sapien. Mauris placerat mollis turpis, nec ultrices quam hendrerit vel. Nunc sit amet neque massa. Proin placerat nulla nec laoreet sagittis. Pellentesque sodales mauris ut erat lobortis, et gravida justo condimentum. ',
                 title: 'To The Gym',
                 date: 'Mar 5th 2022',
                 time: '21:00',
@@ -49,7 +49,7 @@ export default {
             },
             content: {
                 creator_id: 0,
-                description: 'dsffdsdf',
+                description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida ac lorem sed ultrices. Suspendisse potenti. Suspendisse pulvinar porta tortor nec malesuada. Vestibulum nec pretium nunc. Donec iaculis ex nisl, non laoreet nibh congue hendrerit. Nunc sodales elementum ligula, tempus efficitur ex varius nec. Etiam vitae cursus sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer sagittis tristique lacus, imperdiet pellentesque odio laoreet sit amet. Pellentesque condimentum libero consectetur, congue dui a, malesuada sapien. Mauris placerat mollis turpis, nec ultrices quam hendrerit vel. Nunc sit amet neque massa. Proin placerat nulla nec laoreet sagittis. Pellentesque sodales mauris ut erat lobortis, et gravida justo condimentum. ',
                 title: 'Митинг',
                 date: 'Mar 5th 2022',
                 time: '21:00',
@@ -63,7 +63,7 @@ export default {
             },
             content: {
                 creator_id: 0,
-                description: 'dsffdsdf',
+                description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida ac lorem sed ultrices. Suspendisse potenti. Suspendisse pulvinar porta tortor nec malesuada. Vestibulum nec pretium nunc. Donec iaculis ex nisl, non laoreet nibh congue hendrerit. Nunc sodales elementum ligula, tempus efficitur ex varius nec. Etiam vitae cursus sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer sagittis tristique lacus, imperdiet pellentesque odio laoreet sit amet. Pellentesque condimentum libero consectetur, congue dui a, malesuada sapien. Mauris placerat mollis turpis, nec ultrices quam hendrerit vel. Nunc sit amet neque massa. Proin placerat nulla nec laoreet sagittis. Pellentesque sodales mauris ut erat lobortis, et gravida justo condimentum. ',
                 title: 'Беседы с Евгением',
                 date: 'Mar 5th 2022',
                 time: '21:00',
@@ -77,7 +77,7 @@ export default {
             },
             content: {
                 creator_id: 0,
-                description: 'dsffdsdf',
+                description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida ac lorem sed ultrices. Suspendisse potenti. Suspendisse pulvinar porta tortor nec malesuada. Vestibulum nec pretium nunc. Donec iaculis ex nisl, non laoreet nibh congue hendrerit. Nunc sodales elementum ligula, tempus efficitur ex varius nec. Etiam vitae cursus sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer sagittis tristique lacus, imperdiet pellentesque odio laoreet sit amet. Pellentesque condimentum libero consectetur, congue dui a, malesuada sapien. Mauris placerat mollis turpis, nec ultrices quam hendrerit vel. Nunc sit amet neque massa. Proin placerat nulla nec laoreet sagittis. Pellentesque sodales mauris ut erat lobortis, et gravida justo condimentum. ',
                 title: 'Бизнес-тренинг Томаса Шелби',
                 date: 'Mar 5th 2022',
                 time: '21:00',
@@ -91,7 +91,7 @@ export default {
             },
             content: {
                 creator_id: 0,
-                description: 'dsffdsdf',
+                description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida ac lorem sed ultrices. Suspendisse potenti. Suspendisse pulvinar porta tortor nec malesuada. Vestibulum nec pretium nunc. Donec iaculis ex nisl, non laoreet nibh congue hendrerit. Nunc sodales elementum ligula, tempus efficitur ex varius nec. Etiam vitae cursus sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer sagittis tristique lacus, imperdiet pellentesque odio laoreet sit amet. Pellentesque condimentum libero consectetur, congue dui a, malesuada sapien. Mauris placerat mollis turpis, nec ultrices quam hendrerit vel. Nunc sit amet neque massa. Proin placerat nulla nec laoreet sagittis. Pellentesque sodales mauris ut erat lobortis, et gravida justo condimentum. ',
                 title: 'Стрим UselessMouth',
                 date: 'Mar 5th 2022',
                 time: '21:00',
@@ -105,7 +105,7 @@ export default {
             },
             content: {
                 creator_id: 0,
-                description: 'dsffdsdf',
+                description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida ac lorem sed ultrices. Suspendisse potenti. Suspendisse pulvinar porta tortor nec malesuada. Vestibulum nec pretium nunc. Donec iaculis ex nisl, non laoreet nibh congue hendrerit. Nunc sodales elementum ligula, tempus efficitur ex varius nec. Etiam vitae cursus sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer sagittis tristique lacus, imperdiet pellentesque odio laoreet sit amet. Pellentesque condimentum libero consectetur, congue dui a, malesuada sapien. Mauris placerat mollis turpis, nec ultrices quam hendrerit vel. Nunc sit amet neque massa. Proin placerat nulla nec laoreet sagittis. Pellentesque sodales mauris ut erat lobortis, et gravida justo condimentum. ',
                 title: 'Deus Vult',
                 date: 'Mar 5th 2022',
                 time: '21:00',
