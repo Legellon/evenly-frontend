@@ -1,16 +1,16 @@
-import { useState, useEffect, useContext } from 'react';
 import EventsPlacer from './events-placer';
 import ToggleMenuBtn from './toggle-menu-btn';
-import { Event } from '../../../context/events-panel';
+import { Event } from '../../../context/event';
 import './event-menu.css'
 
 interface EventMenuProps {
-    events: Event[],
-    collapsed: boolean,
-    togglePanel: () => void
+    events: Event[]
+    collapsed: boolean
+    selectedEventId: number | undefined
+    togglePanelAction: () => void
 }
 
-export default function ({ events, collapsed, togglePanel }: EventMenuProps) {
+export default ({ events, collapsed, togglePanelAction, selectedEventId }: EventMenuProps) => {
     return (
         <div
             className={
@@ -24,6 +24,7 @@ export default function ({ events, collapsed, togglePanel }: EventMenuProps) {
                 <div className='events-container'>
                     <EventsPlacer
                         events={events}
+                        selectedEventId={selectedEventId}
                     />
                 </div>
                 
@@ -31,7 +32,7 @@ export default function ({ events, collapsed, togglePanel }: EventMenuProps) {
 
             <div 
                 className='btn toggle-panel-box'
-                onClick={togglePanel}
+                onClick={togglePanelAction}
             >
                 <ToggleMenuBtn 
                     collapsed={collapsed} 

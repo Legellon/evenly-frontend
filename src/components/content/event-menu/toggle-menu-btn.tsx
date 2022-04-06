@@ -4,7 +4,7 @@ interface ToggleMenuProps {
     collapsed: boolean
 }
 
-export default function ({ collapsed }: ToggleMenuProps) {
+export default ({ collapsed }: ToggleMenuProps) => {
     return (
         <div className='btn toggle-panel-btn'>
             {collapsed ?

@@ -1,11 +1,11 @@
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import './profile.css'
 
 interface ProfileProps {
     user: any
 }
 
-export default function ({ user }: ProfileProps) {
+export default ({ user }: ProfileProps) => {
     const [openedProfileMenu, setOpenProfileMenu] = useState<boolean>(false);
 
     const profileContainerStyles = [
@@ -25,7 +25,7 @@ export default function ({ user }: ProfileProps) {
 
     return (
         <>
-            <div className='profile-icon-box'>
+            <div className='profile-icon-box btn'>
                 <div
                     className={`profile-container ${profileContainerStyles}`}
                     onClick={handleProfileClick}

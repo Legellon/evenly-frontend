@@ -1,3 +1,9 @@
+.content-box {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
 .navbar-box {
     position: absolute;
     display: flex;
@@ -7,20 +13,25 @@
     z-index: 1;
 }
 
+.navbar-box.displaced-right {
+    right: calc(1.5rem + 42rem);
+}
+
 .map-box {
     position: absolute;
-    border: none;
     height: 100vh;
-    width: 100%;
+    left: 0;
+    right: 0;
+    z-index: 0;
 }
 
-.map-box.opened-panel {
+/* .map-box.opened-panel {
     left: 38rem;
-}
+} */
 
-.map-box.opened-details {
+/* .map-box.opened-details {
     right: 40rem;
-}
+} */
 
 @media (max-width: 1080px) {
     .map-box.opened-panel {

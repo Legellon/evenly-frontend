@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Content from './components/content';
 import GlobalProvider, { GlobalContext } from './context/global';
 import { ColorThemes } from './context/global';
@@ -17,7 +17,7 @@ export default function () {
   };
 
   useEffect(() => {
-    theme === ColorThemes.LIGHT ? 
+    theme === ColorThemes.LIGHT ?
       bodyClassList.add('light-theme') : bodyClassList.remove('light-theme');
   }, [theme]);
 
