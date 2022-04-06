@@ -2,3 +2,10 @@
     height: 100%;
     width: 100%;
 }
+
+.marker-body {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: red;
+}

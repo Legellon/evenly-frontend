@@ -3,7 +3,7 @@ export default {
         {
             id: 0,
             coordinates: {
-                lng: 24.753574, lat: 59.436962
+                lng: 24.7161133, lat: 59.4305167
             },
             content: {
                 creator_id: 0,
@@ -17,7 +17,7 @@ export default {
         {
             id: 1,
             coordinates: {
-                lng: 24.753574, lat: 59.436962
+                lng: 24.7421582, lat: 59.4268283
             },
             content: {
                 creator_id: 0,
@@ -31,7 +31,7 @@ export default {
         {
             id: 2,
             coordinates: {
-                lng: 24.753574, lat: 59.436962
+                lng: 24.7521712, lat: 59.4356091
             },
             content: {
                 creator_id: 0,
@@ -45,7 +45,7 @@ export default {
         {
             id: 3,
             coordinates: {
-                lng: 24.753574, lat: 59.436962
+                lng: 24.7439929, lat: 59.4338191
             },
             content: {
                 creator_id: 0,

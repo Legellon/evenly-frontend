@@ -5,7 +5,7 @@ interface ProfileProps {
     user: any
 }
 
-export default function ({ user }: ProfileProps) {
+export default ({ user }: ProfileProps) => {
     const [openedProfileMenu, setOpenProfileMenu] = useState<boolean>(false);
 
     const profileContainerStyles = [

@@ -1,16 +1,16 @@
-import { Event } from '../../../context/events-panel';
-
+import { MouseEventHandler } from 'react';
+import { Event } from '../../../context/event';
 import './event-card.css';
 
 interface EventCardProps {
     event: Event,
-    selectEvent: () => void
+    onClickAction: MouseEventHandler<HTMLDivElement>
 }
 
-export default function({ event, selectEvent }: EventCardProps) {
+export default ({ event, onClickAction }: EventCardProps) => {
     const eventContent = event.content;
     return (
-        <div className="event-card" onClick={selectEvent}>
+        <div className="event-card" onClick={onClickAction}>
 
             <img src={eventContent.image as string} className="event-card-image" />
             {/* <span className="article-category">Technology</span> */}

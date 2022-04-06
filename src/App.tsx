@@ -17,7 +17,7 @@ export default function () {
   };
 
   useEffect(() => {
-    theme === ColorThemes.LIGHT ? 
+    theme === ColorThemes.LIGHT ?
       bodyClassList.add('light-theme') : bodyClassList.remove('light-theme');
   }, [theme]);
 

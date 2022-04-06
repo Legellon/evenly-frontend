@@ -1,7 +1,7 @@
 import { useGlobal } from "../../../context/global";
 import './toggle-theme.css'
 
-export default function() {
+export default () => {
     const { theme, toggleTheme } = useGlobal();
     return (
         <div className='theme-icon-box btn'>

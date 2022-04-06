@@ -1,26 +1,21 @@
-import { Event, useEventsPanel } from '../../../context/events-panel';
+import { Event, useEvent } from '../../../context/event';
 import './event-details.css';
 
 interface EventDetailsProps {
-    event: Event | undefined
+    selectedEvent: Event | null
 }
 
-export default function ({ event }: EventDetailsProps) {
-    const { setSelectedEvent } = useEventsPanel();
-
-    function closeEventDetails(): void {
-        setSelectedEvent?.(undefined);
-    }
-
+export default ({ selectedEvent }: EventDetailsProps) => {
+    const { closeEventDetails } = useEvent();
     return (
         <>
-            {event && (
+            {selectedEvent && (
                 <div className="event-details-box shadowed">
 
                     <div className='event-details-icons-box'>
-                        <div 
+                        <div
                             className='close-icon-box btn'
-                            onClick={ closeEventDetails }
+                            onClick={() => closeEventDetails?.()}
                         >
                             <div className='close-icon-container'>
                                 <i className="ri-close-fill" />
@@ -30,20 +25,20 @@ export default function ({ event }: EventDetailsProps) {
 
                     <div className='event-details-container'>
 
-                        <img className='event-details-image' src={event.content.image as string} />
+                        <img className='event-details-image' src={selectedEvent.content.image as string} />
 
                         <div className='event-details-title'>
-                            {event.content.title}
+                            {selectedEvent.content.title}
                         </div>
                         <div className='event-details-spliter' />
 
                         <div className='event-details-date'>
-                            {event.content.date} | {event.content.time}
+                            {selectedEvent.content.date} | {selectedEvent.content.time}
                         </div>
                         <div className='event-details-spliter' />
 
                         <div className='event-details-description'>
-                            {event.content.description}
+                            <p>{selectedEvent.content.description}</p>
                         </div>
                         <div className='event-details-spliter' />
 

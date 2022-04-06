@@ -1,3 +1,8 @@
+:root {
+    --close-details-btn-height: 2.5em;
+    --close-details-btn-width: 2.5em; 
+}
+
 .event-details-box {
     position: absolute;
     background-color: var(--primary-background-color);
@@ -22,15 +27,15 @@
 .close-icon-container {
     overflow: hidden;
     background-color: var(--transparent-dark-color);
-    height: var(--icon-height);
-    width: var(--icon-width);
+    height: var(--close-details-btn-height);
+    width: var(--close-details-btn-width);
     border-radius: 50%;
     text-align: center;
 }
 
 .close-icon-container {
-    padding-top: .8rem;
-    padding-left: .1rem;
+    padding-top: .55rem;
+    padding-left: .09rem;
 }
 
 .event-details-container {
@@ -42,9 +47,9 @@
 }
 
 .event-details-title {
-    padding: 10px;
     font-weight: 700;
     font-size: var(--font-size-md);
+    padding: 10px 13px 10px 13px;
 }
 
 .event-details-image {
@@ -59,13 +64,16 @@
 }
 
 .event-details-description {
-    padding: 10px;
+    font-size: 1.35rem;
+    padding: 10px 13px 10px 13px;
 }
 
 .event-details-date {
-    padding: 10px;
+    font-weight: 500;
+    font-size: var(--font-size-sm);
+    padding: 10px 13px 10px 13px;
 }
 
 .event-details-social {
-    padding: 10px
+    padding: 10px 13px 10px 13px;
 }
