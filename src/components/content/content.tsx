@@ -1,11 +1,11 @@
-import { FC, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import EventMenu from "./event-menu";
 import Profile from "./profile";
 import EventsMap from "./events-map";
 import SearchBar from "./search-bar";
 import ToggleTheme from "./toggle-theme";
 import EventDetails from "./event-details";
-import EventProvider, { ClickEventAction, CloseEventAction, Event, EventContext, OpenEventAction, OpenEventActionById } from "../../context/event";
+import EventProvider, { ActiveEventStyleDefiner, ClickEventAction, CloseEventAction, Event, EventContext, EventID, OpenEventAction, OpenEventActionById } from "../../context/event";
 import { useGlobal } from "../../context/global";
 import fakeResponse from "../../api/fake-response";
 import './content.css';
@@ -40,7 +40,7 @@ export default () => {
     }
 
     //Open right event panel
-    const openEventDetails: OpenEventAction = (event: Event) => {
+    const openEventDetails: OpenEventAction = (event) => {
         setSelectedEvent(event);
     }
 
@@ -54,11 +54,11 @@ export default () => {
     //Handle actions after click on event
     //Open if closed and close if opened
     const handleClickEventAction: ClickEventAction = (eventId, selectedEventId) => {
-        if (selectedEventId || selectedEventId === 0) {
             if (selectedEventId === eventId) return closeEventDetails();
-        }
         return openEventDetailsById(eventId);
     };
+
+    const isActiveEvent: ActiveEventStyleDefiner = (eventId) => eventId === selectedEvent?.id ? 'active' : '';
 
     //Generate styles for a navbar of upper UI buttons
     const navbarBoxStyles = [
@@ -69,7 +69,8 @@ export default () => {
     //Shared data or functional to the context
     const eventContextValue: EventContext = {
         handleClickEventAction,
-        closeEventDetails
+        closeEventDetails,
+        isActiveEvent
     };
 
     return (

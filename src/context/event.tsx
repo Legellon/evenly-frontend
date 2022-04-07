@@ -8,6 +8,7 @@ export type OpenEventActionById = (eventId: EventID) => void;
 export type CloseEventAction = () => void;
 export type OpenEventAction = (event: Event) => void;
 export type ClickEventAction = (eventId: EventID, selectedEventId?: EventID) => void;
+export type ActiveEventStyleDefiner = (event: EventID) => 'active' | '';
 
 export interface EventData {
     creator_id: EventID,
@@ -27,15 +28,17 @@ export interface Event {
     content: EventData
 }
 
-export type EventContext = {
+export interface EventContext {
     openEventDetails?: OpenEventAction,
     openEventDetailsById?: OpenEventActionById,
     closeEventDetails?: CloseEventAction,
-    handleClickEventAction: ClickEventAction
+    handleClickEventAction: ClickEventAction,
+    isActiveEvent: ActiveEventStyleDefiner,
 }
 
 const EventContext = createContext<EventContext>({
-    handleClickEventAction: () => {},
+    handleClickEventAction: () => { throw new Error("handleClickEventAction doesn't exist.") },
+    isActiveEvent: () => '',
 });
 
 export function useEvent(): EventContext {
