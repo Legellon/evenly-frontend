@@ -33,11 +33,11 @@ function serializeEventsToFeatureCollection(events: Event[]): GeoJSON.FeatureCol
 }
 
 export default ({ theme, events, selectedEventId }: MapProps) => {
-    const { handleClickEventAction } = useEvent();
+    const { handleClickEventAction, isActiveEvent } = useEvent();
 
     const eventFeatures = useMemo(() => serializeEventsToFeatureCollection(events), [events]);
     const mapboxStyle = theme === ColorThemes.DARK ? 'mapbox://styles/mapbox/dark-v10' : 'mapbox://styles/mapbox/light-v10';
-    
+
     return (
         <Map
             mapboxAccessToken={mapboxAccessToken}
@@ -48,22 +48,29 @@ export default ({ theme, events, selectedEventId }: MapProps) => {
             }}
             mapStyle={mapboxStyle}
         >
-            {eventFeatures.features.map(feature => (
-                <Marker
+            {eventFeatures.features.map(feature => {
+                const eventId = feature.properties.id;
+
+                const markerStyles = [
+                    'marker-body',
+                    isActiveEvent(eventId),
+                ].join(' ');
+
+                return (<Marker
                     key={feature.properties.id}
                     longitude={feature.geometry.coordinates[0]}
                     latitude={feature.geometry.coordinates[1]}
                     style={{
                         width: '20px', height: '20px',
-                        cursor: 'pointer'
+                        cursor: 'pointer',
                     }}
-                    onClick={() => handleClickEventAction(feature.properties.id, selectedEventId)}
+                    onClick={() => handleClickEventAction(eventId, selectedEventId)}
                 >
-                    <div className="marker-body">
-
+                    <div className={markerStyles}>
+                        {eventId}
                     </div>
-                </Marker>
-            ))}
+                </Marker>);
+            })}
         </Map>
     );
 }

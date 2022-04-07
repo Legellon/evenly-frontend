@@ -9,3 +9,15 @@
     border-radius: 50%;
     background-color: red;
 }
+
+.marker-body:hover {
+    background-color: darkred;
+}
+
+.marker-body.active {
+    background-color: green;
+}
+
+.marker-body.active:hover {
+    background-color: darkgreen;
+}

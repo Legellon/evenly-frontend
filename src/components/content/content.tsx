@@ -54,7 +54,7 @@ export default () => {
     //Handle actions after click on event
     //Open if closed and close if opened
     const handleClickEventAction: ClickEventAction = (eventId, selectedEventId) => {
-            if (selectedEventId === eventId) return closeEventDetails();
+        if (selectedEventId === eventId) return closeEventDetails();
         return openEventDetailsById(eventId);
     };
 
