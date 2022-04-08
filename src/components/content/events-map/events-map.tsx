@@ -1,7 +1,7 @@
 import { Map, Marker } from "react-map-gl";
-import { useMemo } from "react";
-import { ColorThemes } from "../../../context/global";
-import { Event, EventData, useEvent } from "../../../context/event";
+import { ColorThemes } from "../../../types/global";
+import { EventData } from "../../../types/event";
+import { Event } from "../../../models/event";
 import './events-map.css';
 
 const mapboxAccessToken = 'pk.eyJ1IjoicHV6aWJveSIsImEiOiJjbDBqYjFtZnIwYXVhM2VwNmUxYTQ1aGRuIn0.Xg9JAhEe0H5ci0aKPfB9sQ';

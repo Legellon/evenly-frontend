@@ -1,8 +1,8 @@
-import { Event, useEvent } from '../../../context/event';
+import { SelectedEvent } from '../../../models/event';
 import './event-details.css';
 
 interface EventDetailsProps {
-    selectedEvent: Event | null
+    selectedEvent: SelectedEvent
 }
 
 export default ({ selectedEvent }: EventDetailsProps) => {

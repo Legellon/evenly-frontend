@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Content from './components/content';
 import GlobalProvider, { GlobalContext } from './context/global';
-import { ColorThemes } from './context/global';
+import { ColorThemes } from './types/global';
 
 const bodyClassList = document.body.classList;
 

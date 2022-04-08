@@ -1,6 +1,6 @@
-import EventsPlacer from './events-placer';
+import EventCard from './event-card';
 import ToggleMenuBtn from './toggle-menu-btn';
-import { Event } from '../../../context/event';
+import { Event } from '../../../models/event';
 import './event-menu.css'
 
 interface EventMenuProps {

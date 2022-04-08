@@ -1,16 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import EventMenu from "./event-menu";
 import Profile from "./profile";
 import EventsMap from "./events-map";
 import SearchBar from "./search-bar";
 import ToggleTheme from "./toggle-theme";
 import EventDetails from "./event-details";
-import EventProvider, { ActiveEventStyleDefiner, ClickEventAction, CloseEventAction, Event, EventContext, EventID, OpenEventAction, OpenEventActionById } from "../../context/event";
+import { Event, SelectedEvent } from "../../models/event";
+import { ToggleEventsPanelAction } from "../../types/event";
 import { useGlobal } from "../../context/global";
 import fakeResponse from "../../api/fake-response";
 import './content.css';
-
-export type ToggleEventAction = () => void;
 
 export default () => {
     const { theme } = useGlobal();

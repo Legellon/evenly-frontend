@@ -1,5 +1,5 @@
 import { MouseEventHandler } from 'react';
-import { Event } from '../../../context/event';
+import { Event } from '../../../models/event';
 import './event-card.css';
 
 interface EventCardProps {
