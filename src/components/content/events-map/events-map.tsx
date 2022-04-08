@@ -15,6 +15,11 @@ interface MapProps {
     events: Event[]
 };
 
+interface MarkerBodyProps {
+    eventContent: EventData
+    active?: boolean
+}
+
 function serializeEventsToFeatureCollection(events: Event[]): GeoJSON.FeatureCollection<GeoJSON.Point, EventFeatureData> {
     return {
         type: 'FeatureCollection',
@@ -31,8 +36,18 @@ function serializeEventsToFeatureCollection(events: Event[]): GeoJSON.FeatureCol
     };
 }
 
-export default ({ theme, events, selectedEventId }: MapProps) => {
-    const { handleClickEventAction, isActiveEvent } = useEvent();
+const MarkerBody = ({ eventContent, active = false }: MarkerBodyProps) => {
+    const markerStyles = [
+        'marker-body',
+        active ? 'active' : ''
+    ].join(' ');
+
+    return (
+        <div className={markerStyles}>
+            {eventContent.title}
+        </div>
+    );
+}
 
 export default ({ theme, events }: MapProps) => {
     const mapboxStyle = theme === ColorThemes.DARK ? 
@@ -61,6 +76,7 @@ export default ({ theme, events }: MapProps) => {
 
                     onClick={() => event.clickAction()}
                 >
+                    <MarkerBody eventContent={event.content} active={event.isSelected} />
                 </Marker>
             ))}
         </Map>
