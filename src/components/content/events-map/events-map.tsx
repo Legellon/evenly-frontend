@@ -10,10 +10,9 @@ interface EventFeatureData extends EventData {
     id: number
 };
 
-type MapProps = {
+interface MapProps {
     theme: ColorThemes
     events: Event[]
-    selectedEventId: number | undefined
 };
 
 function serializeEventsToFeatureCollection(events: Event[]): GeoJSON.FeatureCollection<GeoJSON.Point, EventFeatureData> {
@@ -35,8 +34,9 @@ function serializeEventsToFeatureCollection(events: Event[]): GeoJSON.FeatureCol
 export default ({ theme, events, selectedEventId }: MapProps) => {
     const { handleClickEventAction, isActiveEvent } = useEvent();
 
-    const eventFeatures = useMemo(() => serializeEventsToFeatureCollection(events), [events]);
-    const mapboxStyle = theme === ColorThemes.DARK ? 'mapbox://styles/mapbox/dark-v10' : 'mapbox://styles/mapbox/light-v10';
+export default ({ theme, events }: MapProps) => {
+    const mapboxStyle = theme === ColorThemes.DARK ? 
+        'mapbox://styles/mapbox/dark-v10' : 'mapbox://styles/mapbox/light-v10';
 
     return (
         <Map
@@ -48,29 +48,21 @@ export default ({ theme, events, selectedEventId }: MapProps) => {
             }}
             mapStyle={mapboxStyle}
         >
-            {eventFeatures.features.map(feature => {
-                const eventId = feature.properties.id;
+            {events.map(event => (
+                <Marker
+                    key={event.id}
 
-                const markerStyles = [
-                    'marker-body',
-                    isActiveEvent(eventId),
-                ].join(' ');
+                    longitude={event.coordinates.lng}
+                    latitude={event.coordinates.lat}
 
-                return (<Marker
-                    key={feature.properties.id}
-                    longitude={feature.geometry.coordinates[0]}
-                    latitude={feature.geometry.coordinates[1]}
                     style={{
-                        width: '20px', height: '20px',
-                        cursor: 'pointer',
+                        width: '20px', height: '20px', cursor: 'pointer'
                     }}
-                    onClick={() => handleClickEventAction(eventId, selectedEventId)}
+
+                    onClick={() => event.clickAction()}
                 >
-                    <div className={markerStyles}>
-                        {eventId}
-                    </div>
-                </Marker>);
-            })}
+                </Marker>
+            ))}
         </Map>
     );
 }

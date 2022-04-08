@@ -6,7 +6,6 @@ interface EventDetailsProps {
 }
 
 export default ({ selectedEvent }: EventDetailsProps) => {
-    const { closeEventDetails } = useEvent();
     return (
         <>
             {selectedEvent && (
@@ -15,7 +14,7 @@ export default ({ selectedEvent }: EventDetailsProps) => {
                     <div className='event-details-icons-box'>
                         <div
                             className='close-icon-box btn'
-                            onClick={() => closeEventDetails?.()}
+                            onClick={() => selectedEvent.close()}
                         >
                             <div className='close-icon-container'>
                                 <i className="ri-close-fill" />

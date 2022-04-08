@@ -15,49 +15,30 @@ export default () => {
     const { theme } = useGlobal();
 
     //State of all available events
-    const [events, setEvents] = useState<Event[]>([]);
-    //State of active event
-    const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
+    const [events, setEvents] = useState<Array<Event>>([]);
+    //State of selected event
+    const [selectedEvent, setSelectedEvent] = useState<SelectedEvent>(null);
 
     //State of left panel
     const [collapsedEventsPanel, setCollapsedEventsPanel] = useState<boolean>(false);
 
-    //Tipa Fetch Api Hook
-    useEffect(() => {
-        const loadedEvents = fakeResponse.events;
-        setEvents(loadedEvents);
-    }, []);
-
-    //Open/Close left events panel
-    const toggleEventsPanel: ToggleEventAction = () => {
-        setCollapsedEventsPanel(!collapsedEventsPanel);
-    }
-
     //Close right event panel
-    const closeEventDetails: CloseEventAction = () => {
+    const closeEvent = (event: Event) => {
+        event.isSelected = false;
         setSelectedEvent(null);
     }
 
     //Open right event panel
-    const openEventDetails: OpenEventAction = (event) => {
+    const openEvent = (event: Event) => {
+        selectedEventRef?.current?.close();
+        event.isSelected = true;
         setSelectedEvent(event);
     }
 
-    //Find and open event by id
-    const openEventDetailsById: OpenEventActionById = (id) => {
-        const event = events.find(event => event.id === id);
-        if (event) openEventDetails(event);
-        else throw new Error('Unable to find an event by id.');
+    //Open/Close left events panel
+    const toggleEventsPanel: ToggleEventsPanelAction = () => {
+        setCollapsedEventsPanel(!collapsedEventsPanel);
     }
-
-    //Handle actions after click on event
-    //Open if closed and close if opened
-    const handleClickEventAction: ClickEventAction = (eventId, selectedEventId) => {
-        if (selectedEventId === eventId) return closeEventDetails();
-        return openEventDetailsById(eventId);
-    };
-
-    const isActiveEvent: ActiveEventStyleDefiner = (eventId) => eventId === selectedEvent?.id ? 'active' : '';
 
     //Generate styles for a navbar of upper UI buttons
     const navbarBoxStyles = [
@@ -82,32 +63,28 @@ export default () => {
                 />
             </div>
 
-            <EventProvider value={eventContextValue}>
-                <div className='map-box'>
-                    {theme && (
-                        <EventsMap
-                            theme={theme}
-                            events={events}
-                            selectedEventId={selectedEvent?.id}
-                        />
-                    )}
-                </div>
+            <div className='map-box'>
+                {theme && (
+                    <EventsMap
+                        theme={theme}
+                        events={events}
+                    />
+                )}
+            </div>
 
-                <SearchBar
-                    placeholder="Enter event title..."
-                />
+            <SearchBar
+                placeholder="Enter event title..."
+            />
 
-                <EventMenu
-                    events={events}
-                    collapsed={collapsedEventsPanel}
-                    selectedEventId={selectedEvent?.id}
-                    togglePanelAction={toggleEventsPanel}
-                />
+            <EventMenu
+                events={events}
+                isCollapsed={collapsedEventsPanel}
+                togglePanelAction={toggleEventsPanel}
+            />
 
-                <EventDetails
-                    selectedEvent={selectedEvent}
-                />
-            </EventProvider>
+            <EventDetails
+                selectedEvent={selectedEvent}
+            />
         </div>
     );
 }

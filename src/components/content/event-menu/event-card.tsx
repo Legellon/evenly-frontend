@@ -4,11 +4,11 @@ import './event-card.css';
 
 interface EventCardProps {
     event: Event
-    onClickAction: MouseEventHandler<HTMLDivElement>
+    onClick: MouseEventHandler<HTMLDivElement>
     active?: boolean
 }
 
-export default ({ event, onClickAction, active = false }: EventCardProps) => {
+export default ({ event, onClick, active = false }: EventCardProps) => {
     const eventContent = event.content;
 
     const eventCardStyles = [
@@ -17,7 +17,7 @@ export default ({ event, onClickAction, active = false }: EventCardProps) => {
     ].join(' ');
 
     return (
-        <div className={eventCardStyles} onClick={onClickAction}>
+        <div className={eventCardStyles} onClick={onClick}>
 
             <img src={eventContent.image as string} className="event-card-image" />
             {/* <span className="article-category">Technology</span> */}

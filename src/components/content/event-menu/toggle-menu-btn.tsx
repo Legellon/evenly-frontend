@@ -1,13 +1,13 @@
 import './toggle-menu-btn.css';
 
 interface ToggleMenuProps {
-    collapsed: boolean
+    isCollapsed: boolean
 }
 
-export default ({ collapsed }: ToggleMenuProps) => {
+export default ({ isCollapsed }: ToggleMenuProps) => {
     return (
         <div className='btn toggle-panel-btn'>
-            {collapsed ?
+            {isCollapsed ?
                 (
                     <>
                         <i className='ri-arrow-right-s-fill right-icon' />

@@ -5,16 +5,15 @@ import './event-menu.css'
 
 interface EventMenuProps {
     events: Event[]
-    collapsed: boolean
-    selectedEventId: number | undefined
+    isCollapsed: boolean
     togglePanelAction: () => void
 }
 
-export default ({ events, collapsed, togglePanelAction, selectedEventId }: EventMenuProps) => {
+export default ({ events, isCollapsed, togglePanelAction }: EventMenuProps) => {
     return (
         <div
             className={
-                `events-panel-box shadowed${collapsed ? ' collapsed' : ''}`
+                `events-panel-box shadowed${isCollapsed ? ' collapsed' : ''}`
             }
         >
             <div className='events-panel-container'>
@@ -22,20 +21,24 @@ export default ({ events, collapsed, togglePanelAction, selectedEventId }: Event
                 <div className='events-search-spacer' />
 
                 <div className='events-container'>
-                    <EventsPlacer
-                        events={events}
-                        selectedEventId={selectedEventId}
-                    />
+                    {events.map(event => (
+                        <EventCard
+                            key={event.id}
+                            event={event}
+                            onClick={() => event.clickAction()}
+                            active={event.isSelected}
+                        />)
+                    )}
                 </div>
-                
+
             </div>
 
-            <div 
+            <div
                 className='btn toggle-panel-box'
                 onClick={togglePanelAction}
             >
-                <ToggleMenuBtn 
-                    collapsed={collapsed} 
+                <ToggleMenuBtn
+                    isCollapsed={isCollapsed}
                 />
             </div>
         </div>
