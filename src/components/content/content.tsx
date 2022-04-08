@@ -18,6 +18,7 @@ export default () => {
     const [events, setEvents] = useState<Array<Event>>([]);
     //State of selected event
     const [selectedEvent, setSelectedEvent] = useState<SelectedEvent>(null);
+    const selectedEventRef = useRef(selectedEvent);
 
     //State of left panel
     const [collapsedEventsPanel, setCollapsedEventsPanel] = useState<boolean>(false);
@@ -46,12 +47,26 @@ export default () => {
         selectedEvent ? 'displaced-right' : '' //Move the box if the right panel is displayed
     ].join(' ');
 
-    //Shared data or functional to the context
-    const eventContextValue: EventContext = {
-        handleClickEventAction,
-        closeEventDetails,
-        isActiveEvent
-    };
+    //Tipa Fetch Api Hook
+    useEffect(() => {
+        const loadedEvents = fakeResponse.events;
+
+        const events = loadedEvents.map(loadedEvent => {
+            const { id, content, coordinates } = loadedEvent;
+            const event = new Event({ id, content, coordinates });
+
+            event.assignCloseCallback(() => closeEvent(event));
+            event.assignOpenCallback(() => openEvent(event));
+
+            return event;
+        });
+
+        setEvents(events);
+    }, []);
+
+    useEffect(() => {
+        selectedEventRef.current = selectedEvent;
+    }, [selectedEvent]);
 
     return (
         <div className="content-box">
