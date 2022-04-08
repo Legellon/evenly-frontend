@@ -3,14 +3,21 @@ import { Event } from '../../../context/event';
 import './event-card.css';
 
 interface EventCardProps {
-    event: Event,
+    event: Event
     onClickAction: MouseEventHandler<HTMLDivElement>
+    active?: boolean
 }
 
-export default ({ event, onClickAction }: EventCardProps) => {
+export default ({ event, onClickAction, active = false }: EventCardProps) => {
     const eventContent = event.content;
+
+    const eventCardStyles = [
+        'event-card',
+        active ? 'active' : ''
+    ].join(' ');
+
     return (
-        <div className="event-card" onClick={onClickAction}>
+        <div className={eventCardStyles} onClick={onClickAction}>
 
             <img src={eventContent.image as string} className="event-card-image" />
             {/* <span className="article-category">Technology</span> */}

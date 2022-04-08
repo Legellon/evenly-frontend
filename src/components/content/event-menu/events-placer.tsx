@@ -7,7 +7,7 @@ interface EventsPlacerProps {
 }
 
 export default ({ events, selectedEventId }: EventsPlacerProps) => {
-    const { handleClickEventAction } = useEvent();
+    const { handleClickEventAction, isActiveEvent } = useEvent();
     return (
         <>
             {events.map(event => (
@@ -15,6 +15,7 @@ export default ({ events, selectedEventId }: EventsPlacerProps) => {
                     key={event.id}
                     event={event}
                     onClickAction={() => handleClickEventAction(event.id, selectedEventId)}
+                    active={isActiveEvent(event.id) ? true : false}
                 />)
             )}
         </>
