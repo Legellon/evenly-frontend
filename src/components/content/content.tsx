@@ -79,12 +79,10 @@ export default () => {
             </div>
 
             <div className='map-box'>
-                {theme && (
-                    <EventsMap
-                        theme={theme}
-                        events={events}
-                    />
-                )}
+                <EventsMap
+                    theme={ theme }
+                    events={ events }
+                />
             </div>
 
             <SearchBar
