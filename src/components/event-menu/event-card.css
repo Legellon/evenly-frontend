@@ -70,8 +70,7 @@
 
 .event-card:hover {
     cursor: pointer;
-    box-shadow:
-        0 1px 4px 2px rgba(60, 60, 60, 0.3);
+    box-shadow: 0 1px 4px 2px rgba(40, 40, 40, 0.3);
 }
 
 .event-card:hover .event-card-data-container {
@@ -86,3 +85,21 @@
 .event-card:hover .event-card-title {
     color: var(--hover-light-color);
 }
+
+.event-card.selected {
+    box-shadow: 0 1px 4px 2px rgba(40, 40, 40, 0.3);
+}
+
+.event-card.selected .event-card-data-container {
+    background-color: var(--hover-dark-color);
+    color: var(--hover-light-color);
+}
+
+.event-card.selected .event-card-data-spacer {
+    background-color: var(--hover-light-color);
+}
+
+.event-card.selected .event-card-title {
+    color: var(--hover-light-color);
+}
+

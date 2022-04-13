@@ -1,16 +1,23 @@
-import { Event } from '../../../context/events-panel';
-
+import { MouseEventHandler } from 'react';
+import { Event } from '../../models/event';
 import './event-card.css';
 
 interface EventCardProps {
-    event: Event,
-    selectEvent: () => void
+    event: Event
+    onClick: MouseEventHandler<HTMLDivElement>
+    isSelected?: boolean
 }
 
-export default function({ event, selectEvent }: EventCardProps) {
+export default function EventCard ({ event, onClick, isSelected = false }: EventCardProps) {
     const eventContent = event.content;
+
+    const eventCardStyles = [
+        'event-card',
+        isSelected ? 'selected' : ''
+    ].join(' ');
+
     return (
-        <div className="event-card" onClick={selectEvent}>
+        <div className={eventCardStyles} onClick={onClick}>
 
             <img src={eventContent.image as string} className="event-card-image" />
             {/* <span className="article-category">Technology</span> */}

@@ -1,16 +1,15 @@
 import { createContext, useContext } from "react"
+import { ColorThemes } from "../types/global";
 
 export type GlobalContext = {
-    theme?: ColorThemes,
-    toggleTheme?: () => void
+    theme: ColorThemes,
+    toggleTheme: () => void
 }
 
-export enum ColorThemes {
-    LIGHT = 'light-theme',
-    DARK = 'dark-theme'
-};
-
-const GlobalContext = createContext<GlobalContext>({});
+const GlobalContext = createContext<GlobalContext>({
+    theme: ColorThemes.DARK,
+    toggleTheme: () => {}
+});
 
 export function useGlobal() {
     return useContext(GlobalContext);

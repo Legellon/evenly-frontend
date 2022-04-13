@@ -1,11 +1,11 @@
-import { createContext, useEffect, useState } from 'react';
-import Content from './components/contentt';
+import { useEffect, useState } from 'react';
+import MainContent from './components/main-content';
 import GlobalProvider, { GlobalContext } from './context/global';
-import { ColorThemes } from './context/global';
+import { ColorThemes } from './types/global';
 
 const bodyClassList = document.body.classList;
 
-export default function () {
+export default function App () {
   const [theme, setTheme] = useState<ColorThemes>(ColorThemes.DARK);
 
   const contextValue: GlobalContext = {
@@ -17,13 +17,13 @@ export default function () {
   };
 
   useEffect(() => {
-    theme === ColorThemes.LIGHT ? 
+    theme === ColorThemes.LIGHT ?
       bodyClassList.add('light-theme') : bodyClassList.remove('light-theme');
   }, [theme]);
 
   return (
     <GlobalProvider value={contextValue}>
-      <Content />
+      <MainContent />
     </GlobalProvider>
   );
 }

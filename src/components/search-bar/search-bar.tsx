@@ -4,7 +4,7 @@ interface SearchBarProps {
     placeholder: string
 }
 
-export default function ({ placeholder }: SearchBarProps ) {
+export default function SearchBar ({ placeholder }: SearchBarProps ) {
     return (
         <div className='search-box'>
             <div className='search-container'>
