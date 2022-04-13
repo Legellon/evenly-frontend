@@ -27,8 +27,9 @@ export default function MainContent () {
         event.content.title.toLowerCase().includes(searchQuery.toLowerCase()) //Filter by title
     );
 
-    //State of left panel
-    const [collapsedEventsPanel, setCollapsedEventsPanel] = useState<boolean>(false);
+    useEffect(() => {
+        setCollapsedEventsPanel(false);
+    }, [searchQuery]);
 
     //Close right event panel
     const closeEvent = (event: Event) => {
