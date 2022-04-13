@@ -86,20 +86,20 @@
     color: var(--hover-light-color);
 }
 
-.event-card.active {
+.event-card.selected {
     box-shadow: 0 1px 4px 2px rgba(40, 40, 40, 0.3);
 }
 
-.event-card.active .event-card-data-container {
+.event-card.selected .event-card-data-container {
     background-color: var(--hover-dark-color);
     color: var(--hover-light-color);
 }
 
-.event-card.active .event-card-data-spacer {
+.event-card.selected .event-card-data-spacer {
     background-color: var(--hover-light-color);
 }
 
-.event-card.active .event-card-title {
+.event-card.selected .event-card-title {
     color: var(--hover-light-color);
 }
 

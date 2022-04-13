@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
-import Content from './components/content';
+import MainContent from './components/main-content';
 import GlobalProvider, { GlobalContext } from './context/global';
 import { ColorThemes } from './types/global';
 
 const bodyClassList = document.body.classList;
 
-export default function () {
+export default function App () {
   const [theme, setTheme] = useState<ColorThemes>(ColorThemes.DARK);
 
   const contextValue: GlobalContext = {
@@ -23,7 +23,7 @@ export default function () {
 
   return (
     <GlobalProvider value={contextValue}>
-      <Content />
+      <MainContent />
     </GlobalProvider>
   );
 }

@@ -7,7 +7,7 @@ body.light-theme {
 }
 
 .profile-icon-box {
-    position: block;
+    display: block;
 }
 
 .profile-container {

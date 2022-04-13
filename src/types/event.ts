@@ -1,7 +1,5 @@
 export type EventID = number
 export type EventCoordinates = { lng: number, lat: number }
-
-export type OpenEventActionById = () => void
 export type CloseEventAction = () => void
 export type OpenEventAction = () => void
 export type ClickEventAction = () => void

@@ -1,6 +1,6 @@
 import EventCard from './event-card';
 import ToggleMenuBtn from './toggle-menu-btn';
-import { Event } from '../../../models/event';
+import { Event } from '../../models/event';
 import './event-menu.css'
 
 interface EventMenuProps {
@@ -9,7 +9,7 @@ interface EventMenuProps {
     togglePanelAction: () => void
 }
 
-export default ({ events, isCollapsed, togglePanelAction }: EventMenuProps) => {
+export default function EventMenu ({ events, isCollapsed, togglePanelAction }: EventMenuProps) {
     return (
         <div
             className={
@@ -26,7 +26,7 @@ export default ({ events, isCollapsed, togglePanelAction }: EventMenuProps) => {
                             key={event.id}
                             event={event}
                             onClick={() => event.clickAction()}
-                            active={event.isSelected}
+                            isSelected={event.isSelected}
                         />)
                     )}
                 </div>

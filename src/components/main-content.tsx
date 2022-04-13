@@ -5,13 +5,13 @@ import EventsMap from "./events-map";
 import SearchBar from "./search-bar";
 import ToggleTheme from "./toggle-theme";
 import EventDetails from "./event-details";
-import { Event, SelectedEvent } from "../../models/event";
-import { ToggleEventsPanelAction } from "../../types/event";
-import { useGlobal } from "../../context/global";
-import fakeResponse from "../../api/fake-response";
-import './content.css';
+import { Event, SelectedEvent } from "../models/event";
+import { ToggleEventsPanelAction } from "../types/event";
+import { useGlobal } from "../context/global";
+import fakeResponse from "../api/fake-response";
+import './main-content.css';
 
-export default () => {
+export default function MainContent () {
     const { theme } = useGlobal();
 
     //State of all available events
@@ -70,7 +70,6 @@ export default () => {
 
     return (
         <div className="content-box">
-
             <div className={navbarBoxStyles}>
                 <ToggleTheme />
                 <Profile

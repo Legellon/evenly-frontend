@@ -1,19 +1,19 @@
 import { MouseEventHandler } from 'react';
-import { Event } from '../../../models/event';
+import { Event } from '../../models/event';
 import './event-card.css';
 
 interface EventCardProps {
     event: Event
     onClick: MouseEventHandler<HTMLDivElement>
-    active?: boolean
+    isSelected?: boolean
 }
 
-export default ({ event, onClick, active = false }: EventCardProps) => {
+export default function EventCard ({ event, onClick, isSelected = false }: EventCardProps) {
     const eventContent = event.content;
 
     const eventCardStyles = [
         'event-card',
-        active ? 'active' : ''
+        isSelected ? 'selected' : ''
     ].join(' ');
 
     return (

@@ -1,6 +1,6 @@
 .marker-body {
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     border-radius: 50%;
     background-color: red;
 }
@@ -9,10 +9,10 @@
     background-color: darkred;
 }
 
-.marker-body.active {
+.marker-body.selected {
     background-color: green;
 }
 
-.marker-body.active:hover {
+.marker-body.selected:hover {
     background-color: darkgreen;
 }

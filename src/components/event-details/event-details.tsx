@@ -1,11 +1,11 @@
-import { SelectedEvent } from '../../../models/event';
+import { SelectedEvent } from '../../models/event';
 import './event-details.css';
 
 interface EventDetailsProps {
     selectedEvent: SelectedEvent
 }
 
-export default ({ selectedEvent }: EventDetailsProps) => {
+export default function EventDetails ({ selectedEvent }: EventDetailsProps) {
     return (
         <>
             {selectedEvent && (
