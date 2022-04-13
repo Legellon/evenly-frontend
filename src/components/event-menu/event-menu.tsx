@@ -7,17 +7,9 @@ interface EventMenuProps {
     events: Event[]
     isCollapsed: boolean
     togglePanelAction: () => void
-    query: string
 }
 
-export default function EventMenu ({ events, query, isCollapsed, togglePanelAction }: EventMenuProps) {
-
-    //Select events that only match to query
-    const matchedEvents = events.filter(event =>
-        //Which fields to check in event
-        event.content.title.toLowerCase().includes(query.toLowerCase()) //Title
-    );
-
+export default function EventMenu ({ events, isCollapsed, togglePanelAction }: EventMenuProps) {
     return (
         <div
             className={
@@ -29,7 +21,7 @@ export default function EventMenu ({ events, query, isCollapsed, togglePanelActi
                 <div className='events-search-spacer'/>
 
                 <div className='events-container'>
-                    {matchedEvents.map(event => (
+                    {events.map(event => (
                         <EventCard
                             key={event.id}
                             event={event}
