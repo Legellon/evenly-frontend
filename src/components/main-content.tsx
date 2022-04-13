@@ -19,8 +19,13 @@ export default function MainContent () {
     //State of selected event
     const [selectedEvent, setSelectedEvent] = useState<SelectedEvent>(null);
     const selectedEventRef = useRef(selectedEvent);
+
     //State of search query
     const [searchQuery, setSearchQuery] = useState<string>('');
+    //Select events that only match to query
+    const filteredEvents = events.filter(event =>
+        event.content.title.toLowerCase().includes(searchQuery.toLowerCase()) //Filter by title
+    );
 
     //State of left panel
     const [collapsedEventsPanel, setCollapsedEventsPanel] = useState<boolean>(false);
@@ -45,7 +50,7 @@ export default function MainContent () {
 
     //Generate styles for a navbar of upper UI buttons
     const navbarBoxStyles = [
-        'navbar-box', //Default style
+        'navbar-box',                          //Default style
         selectedEvent ? 'displaced-right' : '' //Move the box if the right panel is displayed
     ].join(' ');
 
@@ -81,8 +86,8 @@ export default function MainContent () {
 
             <div className='map-box'>
                 <EventsMap
+                    events={filteredEvents}
                     theme={theme}
-                    events={events}
                 />
             </div>
 
@@ -92,8 +97,7 @@ export default function MainContent () {
             />
 
             <EventMenu
-                events={events}
-                query={searchQuery}
+                events={filteredEvents}
                 isCollapsed={collapsedEventsPanel}
                 togglePanelAction={toggleEventsPanel}
             />
