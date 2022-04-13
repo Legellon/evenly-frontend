@@ -20,6 +20,30 @@ export default function MainContent () {
     const [selectedEvent, setSelectedEvent] = useState<SelectedEvent>(null);
     const selectedEventRef = useRef(selectedEvent);
 
+    useEffect(() => {
+        selectedEventRef.current = selectedEvent;
+    }, [selectedEvent]);
+
+    //Tipa Fetch Api Hook
+    useEffect(() => {
+        const loadedEvents = fakeResponse.events;
+
+        const events = loadedEvents.map(loadedEvent => {
+            const { id, content, coordinates } = loadedEvent;
+            const event = new Event({ id, content, coordinates });
+
+            event.assignCloseCallback(() => closeEvent(event));
+            event.assignOpenCallback(() => openEvent(event));
+
+            return event;
+        });
+
+        setEvents(events);
+    }, []);
+
+    //State of left panel
+    const [collapsedEventsPanel, setCollapsedEventsPanel] = useState<boolean>(false);
+
     //State of search query
     const [searchQuery, setSearchQuery] = useState<string>('');
     //Select events that only match to query
@@ -54,27 +78,6 @@ export default function MainContent () {
         'navbar-box',                          //Default style
         selectedEvent ? 'displaced-right' : '' //Move the box if the right panel is displayed
     ].join(' ');
-
-    //Tipa Fetch Api Hook
-    useEffect(() => {
-        const loadedEvents = fakeResponse.events;
-
-        const events = loadedEvents.map(loadedEvent => {
-            const { id, content, coordinates } = loadedEvent;
-            const event = new Event({ id, content, coordinates });
-
-            event.assignCloseCallback(() => closeEvent(event));
-            event.assignOpenCallback(() => openEvent(event));
-
-            return event;
-        });
-
-        setEvents(events);
-    }, []);
-
-    useEffect(() => {
-        selectedEventRef.current = selectedEvent;
-    }, [selectedEvent]);
 
     return (
         <div className="content-box">
