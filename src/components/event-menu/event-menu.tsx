@@ -1,15 +1,23 @@
 import EventCard from './event-card';
 import ToggleMenuBtn from './toggle-menu-btn';
-import { Event } from '../../models/event';
+import {Event} from '../../models/event';
 import './event-menu.css'
 
 interface EventMenuProps {
     events: Event[]
     isCollapsed: boolean
     togglePanelAction: () => void
+    query: string
 }
 
-export default function EventMenu ({ events, isCollapsed, togglePanelAction }: EventMenuProps) {
+export default function EventMenu ({ events, query, isCollapsed, togglePanelAction }: EventMenuProps) {
+
+    //Select events that only match to query
+    const matchedEvents = events.filter(event =>
+        //Which fields to check in event
+        event.content.title.toLowerCase().includes(query.toLowerCase()) //Title
+    );
+
     return (
         <div
             className={
@@ -18,10 +26,10 @@ export default function EventMenu ({ events, isCollapsed, togglePanelAction }: E
         >
             <div className='events-panel-container'>
 
-                <div className='events-search-spacer' />
+                <div className='events-search-spacer'/>
 
                 <div className='events-container'>
-                    {events.map(event => (
+                    {matchedEvents.map(event => (
                         <EventCard
                             key={event.id}
                             event={event}
