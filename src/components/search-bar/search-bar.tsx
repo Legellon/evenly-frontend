@@ -1,10 +1,12 @@
+import React from "react";
 import './search-bar.css';
 
 interface SearchBarProps {
     placeholder: string
+    changeQuery: React.Dispatch<React.SetStateAction<string>>
 }
 
-export default function SearchBar ({ placeholder }: SearchBarProps ) {
+export default function SearchBar ({ placeholder, changeQuery }: SearchBarProps ) {
     return (
         <div className='search-box'>
             <div className='search-container'>
@@ -14,6 +16,7 @@ export default function SearchBar ({ placeholder }: SearchBarProps ) {
                         className="search-input"
                         type="text"
                         placeholder={placeholder}
+                        onChange={(e) => changeQuery(e.target.value)}
                     />
 
                     <button className="btn search-settings-btn">

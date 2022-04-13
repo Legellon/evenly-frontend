@@ -19,6 +19,8 @@ export default function MainContent () {
     //State of selected event
     const [selectedEvent, setSelectedEvent] = useState<SelectedEvent>(null);
     const selectedEventRef = useRef(selectedEvent);
+    //State of search query
+    const [searchQuery, setSearchQuery] = useState<string>('');
 
     //State of left panel
     const [collapsedEventsPanel, setCollapsedEventsPanel] = useState<boolean>(false);
@@ -79,17 +81,19 @@ export default function MainContent () {
 
             <div className='map-box'>
                 <EventsMap
-                    theme={ theme }
-                    events={ events }
+                    theme={theme}
+                    events={events}
                 />
             </div>
 
             <SearchBar
                 placeholder="Enter event title..."
+                changeQuery={setSearchQuery}
             />
 
             <EventMenu
                 events={events}
+                query={searchQuery}
                 isCollapsed={collapsedEventsPanel}
                 togglePanelAction={toggleEventsPanel}
             />
