@@ -3,9 +3,10 @@ import './profile.css'
 
 interface ProfileProps {
     user: any
+    onClick: () => void
 }
 
-export default function Profile ({ user }: ProfileProps) {
+export default function Profile ({ user, onClick }: ProfileProps) {
     const [openedProfileMenu, setOpenProfileMenu] = useState<boolean>(false);
 
     const profileContainerStyles = [
@@ -28,7 +29,7 @@ export default function Profile ({ user }: ProfileProps) {
             <div className='profile-icon-box btn'>
                 <div
                     className={`profile-container ${profileContainerStyles}`}
-                    onClick={handleProfileClick}
+                    onClick={onClick}
                 >
                     {user ?
                         (

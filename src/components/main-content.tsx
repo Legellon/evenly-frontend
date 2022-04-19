@@ -1,13 +1,17 @@
 import { useEffect, useRef, useState } from "react";
+
 import EventMenu from "./event-menu";
 import Profile from "./profile";
 import EventsMap from "./events-map";
 import SearchBar from "./search-bar";
 import ToggleTheme from "./toggle-theme";
 import EventDetails from "./event-details";
+import EventForm from "./event-form";
+
 import { Event, SelectedEvent } from "../models/event";
 import { ToggleEventsPanelAction } from "../types/event";
 import { useGlobal } from "../context/global";
+
 import fakeResponse from "../api/fake-response";
 import './main-content.css';
 
@@ -40,6 +44,8 @@ export default function MainContent () {
 
         setEvents(events);
     }, []);
+
+    const [openEventForm, setOpenEventForm] = useState<boolean>(false);
 
     //State of left panel
     const [collapsedEventsPanel, setCollapsedEventsPanel] = useState<boolean>(false);
@@ -85,6 +91,7 @@ export default function MainContent () {
                 <ToggleTheme />
                 <Profile
                     user={null}
+                    onClick={() => setOpenEventForm(prevState => !prevState)}
                 />
             </div>
 
@@ -108,6 +115,11 @@ export default function MainContent () {
 
             <EventDetails
                 selectedEvent={selectedEvent}
+            />
+
+            <EventForm
+                open={openEventForm}
+                onClose={() => setOpenEventForm(false)}
             />
         </div>
     );
