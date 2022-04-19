@@ -23,6 +23,8 @@ export default function MainContent () {
     //State of left panel
     const [collapsedEventsPanel, setCollapsedEventsPanel] = useState<boolean>(false);
 
+    const [user, setUser] = useState<any>(null);
+
     //Close right event panel
     const closeEvent = (event: Event) => {
         event.isSelected = false;
@@ -60,6 +62,8 @@ export default function MainContent () {
 
             return event;
         });
+
+        setUser(fakeResponse.user);
 
         setEvents(events);
     }, []);

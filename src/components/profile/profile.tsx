@@ -1,11 +1,13 @@
 import { useState } from 'react';
-import './profile.css'
+import './profile.css';
+import Login from '../event-login/Login';
+
 
 interface ProfileProps {
     user: any
 }
 
-export default function Profile ({ user }: ProfileProps) {
+export default function Profile({ user }: ProfileProps) {
     const [openedProfileMenu, setOpenProfileMenu] = useState<boolean>(false);
 
     const profileContainerStyles = [
@@ -25,22 +27,20 @@ export default function Profile ({ user }: ProfileProps) {
 
     return (
         <>
-            <div className='profile-icon-box btn'>
-                <div
-                    className={`profile-container ${profileContainerStyles}`}
-                    onClick={handleProfileClick}
-                >
-                    {user ?
-                        (
-                            <img
-                                className='profile-image'
-                                src={user.image}
-                            />
-                        ) : (
-                            <i className='ri-login-box-line login-icon' />
-                        )
-                    }
-                </div>
+            <div
+                className={`profile-container ${profileContainerStyles}`}
+                onClick={handleProfileClick} 
+            >
+                {user ?
+                    (
+                        <img
+                            className='profile-image'
+                            src={user.image}
+                        />
+                    ) : (
+                        <Login />
+                    )
+                }
             </div>
             <div
                 className={
