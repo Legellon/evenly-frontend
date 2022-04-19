@@ -1,4 +1,4 @@
-import "./event-form.scss";
+import "./event-form.css";
 import {useState} from 'react';
 
 function EventForm({open, onClose}) {
